@@ -22,6 +22,7 @@ namespace MicaForEveryone.UI
             new Contributor("sitiom", "https://github.com/sitiom", null),
             new Contributor("krlvm", "https://github.com/krlvm", null),
             new Contributor("TheXDS", "https://github.com/TheXDS", null),
+            new Contributor("o0kam1", "https://github.com/duzhaokun123", null),
         };
 
         internal Contributor[] Translators { get; } =
