@@ -1,8 +1,14 @@
 ﻿using XclParser.Reflection;
 
+<<<<<<< HEAD:MicaForEveryone.Core/Models/ClassRule.cs
 using MicaForEveryone.Core.Interfaces;
 using MicaForEveryone.Core.Ui.Models;
 using MicaForEveryone.Core.Ui.ViewModels;
+=======
+using MicaForEveryone.Interfaces;
+using MicaForEveryone.UI.Models;
+using MicaForEveryone.Win32.PInvoke;
+>>>>>>> 87676fa (feat: change titlebar color):MicaForEveryone/Models/ClassRule.cs
 
 namespace MicaForEveryone.Core.Models
 {
@@ -36,6 +42,15 @@ namespace MicaForEveryone.Core.Models
 
         [XclField]
         public bool EnableBlurBehind { get; set; }
+
+        [XclField]
+        public string CaptionColor { get; set; } = string.Empty;
+
+        [XclField]
+        public string CaptionTextColor { get; set; } = string.Empty;
+
+        [XclField]
+        public string BorderColor { get; set; } = string.Empty;
 
         public bool IsApplicable(TargetWindow target) =>
             target.ClassName == ClassName;

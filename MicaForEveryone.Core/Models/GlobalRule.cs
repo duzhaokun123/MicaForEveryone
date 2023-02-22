@@ -3,7 +3,15 @@ using MicaForEveryone.Core.Ui.Models;
 using MicaForEveryone.Core.Ui.ViewModels;
 using XclParser.Reflection;
 
+<<<<<<< HEAD:MicaForEveryone.Core/Models/GlobalRule.cs
 namespace MicaForEveryone.Core.Models
+=======
+using MicaForEveryone.Interfaces;
+using MicaForEveryone.UI.Models;
+using MicaForEveryone.Win32.PInvoke;
+
+namespace MicaForEveryone.Models
+>>>>>>> 87676fa (feat: change titlebar color):MicaForEveryone/Models/GlobalRule.cs
 {
     [XclType(TypeName = "Global")]
     public class GlobalRule : IRule
@@ -26,6 +34,15 @@ namespace MicaForEveryone.Core.Models
 
         [XclField]
         public bool EnableBlurBehind { get; set; }
+
+        [XclField]
+        public string CaptionColor { get; set; } = string.Empty;
+
+        [XclField]
+        public string CaptionTextColor { get; set; } = string.Empty;
+
+        [XclField]
+        public string BorderColor { get; set; } = string.Empty;
 
         public bool IsApplicable(TargetWindow target) => true;
 

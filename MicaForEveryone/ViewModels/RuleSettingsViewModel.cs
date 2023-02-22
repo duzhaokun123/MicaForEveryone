@@ -83,7 +83,41 @@ namespace MicaForEveryone.ViewModels
             }
         }
 
+<<<<<<< HEAD
         public Core.Ui.ViewModels.ISettingsViewModel? ParentViewModel { get; set; }
+=======
+        public string CaptionColor {
+            get => Rule?.CaptionColor ?? "";
+            set {
+                if (Rule != null && Rule.CaptionColor != value) {
+                    Rule.CaptionColor = value;
+                    _settingsService.CommitChangesAsync(SettingsChangeType.RuleChanged, Rule);
+                }
+            }
+        }
+
+        public string CaptionTextColor {
+            get => Rule?.CaptionTextColor ?? "";
+            set {
+                if (Rule != null && Rule.CaptionTextColor != value) {
+                    Rule.CaptionTextColor = value;
+                    _settingsService.CommitChangesAsync(SettingsChangeType.RuleChanged, Rule);
+                }
+            }
+        }
+
+        public string BorderColor {
+            get => Rule?.BorderColor ?? "";
+            set {
+                if (Rule != null && Rule.BorderColor != value) {
+                    Rule.BorderColor = value;
+                    _settingsService.CommitChangesAsync(SettingsChangeType.RuleChanged, Rule);
+                }
+            }
+        }
+
+        public UI.ViewModels.ISettingsViewModel? ParentViewModel { get; set; }
+>>>>>>> 87676fa (feat: change titlebar color)
 
         public IRule? Rule { get; set; }
     }
