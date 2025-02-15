@@ -1,14 +1,8 @@
 ﻿using XclParser.Reflection;
 
-<<<<<<< HEAD:MicaForEveryone.Core/Models/ClassRule.cs
 using MicaForEveryone.Core.Interfaces;
 using MicaForEveryone.Core.Ui.Models;
 using MicaForEveryone.Core.Ui.ViewModels;
-=======
-using MicaForEveryone.Interfaces;
-using MicaForEveryone.UI.Models;
-using MicaForEveryone.Win32.PInvoke;
->>>>>>> 87676fa (feat: change titlebar color):MicaForEveryone/Models/ClassRule.cs
 
 namespace MicaForEveryone.Core.Models
 {

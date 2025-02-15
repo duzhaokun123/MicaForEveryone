@@ -3,15 +3,7 @@ using MicaForEveryone.Core.Ui.Models;
 using MicaForEveryone.Core.Ui.ViewModels;
 using XclParser.Reflection;
 
-<<<<<<< HEAD:MicaForEveryone.Core/Models/ProcessRule.cs
 namespace MicaForEveryone.Core.Models
-=======
-using MicaForEveryone.Interfaces;
-using MicaForEveryone.UI.Models;
-using MicaForEveryone.Win32.PInvoke;
-
-namespace MicaForEveryone.Models
->>>>>>> 87676fa (feat: change titlebar color):MicaForEveryone/Models/ProcessRule.cs
 {
     [XclType(TypeName = "Process")]
     public class ProcessRule : IRule

@@ -42,7 +42,13 @@ namespace MicaForEveryone.Services
             var r = ResourceManager.Current.MainResourceMap["Resources/AppName"];
             foreach (var c in r.Candidates)
             {
-                yield return new Language(c.GetQualifierValue("language"));
+                Language language = null;
+                try {
+                    language = new Language(c.GetQualifierValue("language"));
+                } catch (Exception e) {
+                    language = new Language("en-US");
+                }
+                yield return language;
             }
         }
 

@@ -188,35 +188,31 @@ namespace MicaForEveryone.Win32
         /// Change border color of window.
         /// Requires Windows build 22000 or higher.
         /// </summary>
+        /// <param name="hWnd">Handle of the target window for the operation.</param>
+        /// <param name="color">Color value to apply to the window's border.</param>
+#if NET6_0_OR_GREATER
+        [SupportedOSPlatform("windows10.0.22000")]
+#endif
         public static void SetBorderColor(IntPtr hWnd, COLORREF color)
         {
             if (Environment.OSVersion.Version.Build < 22000)
                 return;
 
-            var value = GCHandle.Alloc(color, GCHandleType.Pinned);
-            var result = DwmSetWindowAttribute(hWnd, DWMWA_BORDER_COLOR, value.AddrOfPinnedObject(), Marshal.SizeOf(color));
-            value.Free();
-            if (result != 0)
-            {
-                throw Marshal.GetExceptionForHR(result);
-            }
+            SetWindowAttribute(hWnd, DwmWindowAttribute.DWMWA_BORDER_COLOR, color, Marshal.SizeOf(color));
         }
 
-        public static void EnableBlurBehind(IntPtr target)
-        {
+        public static void EnableBlurBehind(IntPtr hWnd) {
             var value = new DWM_BLURBEHIND(true);
             CheckHResult(DwmEnableBlurBehindWindow(hWnd, value));
 
-            var accentPolicy = new AccentPolicy
-            {
+            var accentPolicy = new AccentPolicy {
                 AccentState = AccentState.ACCENT_ENABLE_BLURBEHIND | AccentState.ACCENT_ENABLE_GRADIENT,
                 GradientColor = (152 << 24) | (0x2B2B2B & 0xFFFFFF),
             };
             var accentSize = Marshal.SizeOf(accentPolicy);
             var accentPolicyPtr = Marshal.AllocHGlobal(accentSize);
             Marshal.StructureToPtr(accentPolicy, accentPolicyPtr, false);
-            var compositionAttributeData = new WindowCompositionAttributeData
-            {
+            var compositionAttributeData = new WindowCompositionAttributeData {
                 Attribute = WindowCompositionAttribute.WCA_ACCENT_POLICY,
                 Data = accentPolicyPtr,
             };
